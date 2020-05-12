@@ -111,3 +111,40 @@ void sort_data(Record records[]){
   }
   printf("Data Sorted\n");
 }
+
+
+// Function: adv_search()
+// Input: record
+// Output: none
+/*
+1. Advanced search: 
+	After receiving the team name and wRC value from the user, 
+	search for players who have a wRC value greater than the wRC value entered
+*/
+void adv_search(Record records[]) {
+	char team[1024];
+	int wRC, c = 0;
+	char temp[1024];
+
+	printf("Enter the team name: ");
+	fgets(team, 1024, stdin);
+	team[strlen(team) - 1] = '\0';
+
+	printf("Enter minimum wRC value: ");
+	scanf("%d", &wRC);
+	fgets(temp, 1024, stdin);
+	
+	for (int i = 1; i <= count; i++) {
+		if (!strcmp(team, records[i].team) && wRC <= records[i].wRC) {
+			printf("=====================\n");
+			printf("NAME: %s\t| ID: %d\n", records[i].name, records[i].id);
+			printf("TEAM: %s\t| wRC: %d\n", records[i].team, records[i].wRC);
+			c++;
+		}
+	}
+	printf("=====================\n");
+
+	if (c == 0) {
+		printf("No data matches the conditions\n");
+	}
+}
