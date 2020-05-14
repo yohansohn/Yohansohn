@@ -46,6 +46,8 @@ void input_handler(char input[], Record records[]){
     sort_data(records);
   else if(!strcmp(input, "6"))
     explanation();
+	else if(!strcmp(input, "7"))
+		adv_search(records);
 	else if(!strcmp(input, "99"))
 		printf("Terminating... bye!\n"); // Quit - no operation (an empty statement with a semi-colon)
 	else
@@ -71,5 +73,7 @@ void display_menu(){
 	printf(" 4. Delete Member\n");
   printf(" 5. Sort data\n");
   printf(" 6. Explanation of each data\n");
+	printf(" 7. Advanced search\n");
 	printf(" 99. Quit\n");
 }
+
